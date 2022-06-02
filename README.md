@@ -26,3 +26,18 @@ in general, tests result in either a Success (expected results), Failure (unexpe
   * test again in staging before shipping the code
 
 
+# Setup
+install coverage and add it to INSTALLED_APPS:
+'''python
+pip install coverage==3.6
+'''
+
+'''python
+coverage run manage.py test whatever -v 2
+
+'''
+
+Build your report to see where testing should begin:
+'''
+coverage html
+'''

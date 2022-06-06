@@ -11,8 +11,8 @@ class Movie(models.Model):
     movie_name = models.CharField(max_length=255)
     movie_description = models.TextField()
     release_date = models.DateTimeField()
-    genere = models.ManyToManyField(Genere)
-    casts = models.ManyToManyField('Cast')
+    genere = models.ManyToManyField(Genere, null=True, blank=True)
+    casts = models.ManyToManyField('Cast', null=True, blank=True)
 
     def __str__(self):
         return self.movie_name

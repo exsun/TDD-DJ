@@ -19,9 +19,9 @@ class Movie(models.Model):
 
 
 class Cast(models.Model):
-    name = models.CharField(max_length=255)
-    age = models.IntegerField()
-    awards = models.CharField(max_length=255)
+    cast_name = models.CharField(max_length=255)
+    cast_age = models.IntegerField()
+    cast_awards = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name

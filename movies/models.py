@@ -8,14 +8,14 @@ class Genere(models.Model):
 
 
 class Movie(models.Model):
-    movie_name = models.CharField(max_length=255)
+    movie_title = models.CharField(max_length=255)
     movie_description = models.TextField()
-    release_date = models.DateTimeField()
+    release_date = models.DateTimeField(auto_now=True, null=True)
     genere = models.ManyToManyField(Genere, null=True, blank=True)
     casts = models.ManyToManyField('Cast', null=True, blank=True)
 
     def __str__(self):
-        return self.movie_name
+        return self.movie_title
 
 
 class Cast(models.Model):
@@ -24,4 +24,4 @@ class Cast(models.Model):
     cast_awards = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.name
+        return self.cast_name

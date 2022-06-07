@@ -1,5 +1,27 @@
 # Test Driven Development in Django
 > Try to Implement
+<details>
+  <summary>Basics</summary>
+
+## Setup
+
+initilize django virtual environment
+```python
+pip install pipenv
+pipenv shell
+```
+
+install django & DRF 
+```python
+pipenv install django && djangorestframework
+```
+
+install DRF and add it to INSTALLED_APPS:
+```python
+pipenv install coverage
+```
+
+</details>
 
 # Type Of Tests
 
@@ -25,19 +47,22 @@ in general, tests result in either a Success (expected results), Failure (unexpe
   * PUSH to the repo and staging, and then
   * test again in staging before shipping the code
 
-
-# Setup
+<details>
+  <summary>Testing Models</summary>
+## Setup
 install coverage and add it to INSTALLED_APPS:
-'''python
+```python
 pip install coverage==3.6
-'''
+```
 
-'''python
+## Run Coverage  
+```python
 coverage run manage.py test whatever -v 2
 
-'''
-
+```
 Build your report to see where testing should begin:
-'''
+```python
 coverage html
-'''
+```
+</details>
+

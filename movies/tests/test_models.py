@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Movie, Genere, Cast
+from ..models import Movie, Genere, Cast
 from django.utils import timezone
 
 class MovieTest(TestCase):

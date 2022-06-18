@@ -1,5 +1,13 @@
+{% load rest_framework %}
+
+
 <html>
   <body>
-    <h1>MOVIES</h1>
+    <h1>MovieTest</h1>
+    <ul>
+      {% for movie in movies %}
+      <li id="movie">{{ movie.movie_title }}</li>
+      {% endfor %}
+    </ul>
   </body>
 </html>

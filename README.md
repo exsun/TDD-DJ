@@ -57,7 +57,7 @@ pip install coverage==3.6
 
 ## Run Coverage  
 ```python
-coverage run manage.py test whatever -v 2
+coverage run manage.py test movies -v 2
 
 ```
 Build your report to see where testing should begin:

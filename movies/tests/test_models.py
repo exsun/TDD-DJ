@@ -1,20 +1,14 @@
 from django.test import TestCase
 from ..models import Movie, Genere, Cast
 from django.utils import timezone
+from . import MovieTest
 
-class MovieTest(TestCase):
-
-    def create_movie(self):
-        return Movie.objects.create(
-            movie_name='Test Movie',
-            movie_description='Test Description',
-            release_date=timezone.now()
-        )
+class MovieTestModels(MovieTest):
     
     def test_movie_craetion(self):
         movie = self.create_movie()
         self.assertTrue(isinstance(movie, Movie))
-        self.assertEqual(str(movie), movie.movie_name)
+        self.assertEqual(str(movie), movie.movie_title)
 
 
 class GenereTest(TestCase):

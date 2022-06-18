@@ -2,8 +2,18 @@ from django.test import TestCase
 from ..models import Movie, Genere, Cast
 from django.utils import timezone
 from . import MovieTest
+from model_bakery import baker
+from pprint import pprint
 
 class MovieTestModels(MovieTest):
+    def setUp(self):
+        self.movie = baker.make('movies.Movie')
+        self.genere = baker.make('movies.Genere', make_m2m=True)
+        self.cast = baker.make('movies.Cast', make_m2m=True)
+        pprint(self.movie.__dict__)
+        pprint(self.genere.__dict__)
+        pprint(self.cast.__dict__)
+
     
     def test_movie_craetion(self):
         movie = self.create_movie()
@@ -12,6 +22,9 @@ class MovieTestModels(MovieTest):
 
 
 class GenereTest(TestCase):
+    def setUp(self):
+        self.genere = baker.make('movies.Genere')
+        # pprint(self.genere.__dict__)
     
     def create_genere(self):
         return Genere.objects.create(
@@ -26,6 +39,9 @@ class GenereTest(TestCase):
 
 
 class CastTest(TestCase):
+    def setUp(self):
+        self.cast = baker.make('movies.Cast')
+        # pprint(self.cast.__dict__)
 
     def create_cast(self):
         return Cast.objects.create(

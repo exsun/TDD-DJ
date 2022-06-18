@@ -9,6 +9,7 @@ djangorestframework = "*"
 coverage = "*"
 selenium = "*"
 django-tastypie = "*"
+model-bakery = "*"
 
 [dev-packages]
 

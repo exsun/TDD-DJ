@@ -10,3 +10,17 @@ class MovieTest(TestCase):
             movie_description='Test Description',
             release_date=timezone.now()
         )
+
+
+    def create_genere(self):
+        return Genere.objects.create(
+            genere_name='Test Genere'
+        )
+
+
+    def create_cast(self):
+        return Cast.objects.create(
+            cast_name='Test Cast',
+            cast_age=20,
+            cast_awards='Test Awards'
+        )

@@ -10,9 +10,9 @@ class MovieTestModels(MovieTest):
         self.movie = baker.make('movies.Movie')
         self.genere = baker.make('movies.Genere', make_m2m=True)
         self.cast = baker.make('movies.Cast', make_m2m=True)
-        pprint(self.movie.__dict__)
-        pprint(self.genere.__dict__)
-        pprint(self.cast.__dict__)
+        # pprint(self.movie.__dict__)
+        # pprint(self.genere.__dict__)
+        # pprint(self.cast.__dict__)
 
     
     def test_movie_craetion(self):
@@ -21,15 +21,12 @@ class MovieTestModels(MovieTest):
         self.assertEqual(str(movie), movie.movie_title)
 
 
-class GenereTest(TestCase):
+class GenereTest(MovieTest):
     def setUp(self):
         self.genere = baker.make('movies.Genere')
         # pprint(self.genere.__dict__)
     
-    def create_genere(self):
-        return Genere.objects.create(
-            genere_name='Test Genere'
-        )
+
     
     def test_genere_creation(self):
         genere = self.create_genere()
@@ -38,17 +35,10 @@ class GenereTest(TestCase):
 
 
 
-class CastTest(TestCase):
+class CastTest(MovieTest):
     def setUp(self):
         self.cast = baker.make('movies.Cast')
         # pprint(self.cast.__dict__)
-
-    def create_cast(self):
-        return Cast.objects.create(
-            cast_name='Test Cast',
-            cast_age=20,
-            cast_awards='Test Awards'
-        )
     
     def test_cast_creation(self):
         cast = self.create_cast()

@@ -10,6 +10,7 @@ coverage = "*"
 selenium = "*"
 django-tastypie = "*"
 model-bakery = "*"
+drf-nested-routers = "*"
 
 [dev-packages]
 

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.contrib import admin
 
 class Forum(models.Model):
@@ -11,7 +11,7 @@ class Forum(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True)
-    creator = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True, on_delete=models.CASCADE)
     forum = models.ForeignKey(Forum, on_delete=models.CASCADE)
     body = models.TextField(max_length=10000)
 

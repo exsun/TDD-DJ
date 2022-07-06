@@ -11,6 +11,8 @@ selenium = "*"
 django-tastypie = "*"
 model-bakery = "*"
 drf-nested-routers = "*"
+pytest = "*"
+pytest-django = "*"
 
 [dev-packages]
 

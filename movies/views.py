@@ -3,9 +3,6 @@ from movies.models import Cast, Genre, Movie
 from movies.serializers import CastSerializer, GenreSerializer, MovieSerializer
 from rest_framework.views import APIView 
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.response import Response
-from rest_framework.renderers import TemplateHTMLRenderer
-from django.urls import reverse
 from rest_framework import status
 
 
@@ -15,7 +12,7 @@ class MovieView(ModelViewSet):
     """
 
     serializer_class = MovieSerializer
-    queryset = Movie.objects.prefetch_related('genres').all()
+    queryset = Movie.objects.all()
 
 
 class GenereView(ModelViewSet):

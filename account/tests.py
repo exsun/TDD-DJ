@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.contrib.auth.models import Group, Permission
 from account.models import User
 import pytest
+from typing import Optional, List
 
 
 @pytest.fixture
@@ -13,17 +14,46 @@ def app_user_group(db) -> Group:
     group.permissions.add(*change_user_permission)
     return group
 
-@pytest.fixture
-def user_A(db, app_user_group: Group) -> User:
-    user = User.objects.create_user("A")
-    user.groups.add(app_user_group)
-    return user
 
 @pytest.fixture
-def user_B(db, app_user_group: Group) -> User:
-    user = User.objects.create_user("B")
-    user.groups.add(app_user_group)
-    return user
+def app_user_factory(db, app_user_group:Group):
+
+    def create_app_user(
+        username: str ,
+        password: Optional[str] = None,
+        first_name: Optional[str] = "Ashkan",
+        last_name: Optional[str] = "Eshtiagh",
+        email: Optional[str] = "ash@gmail.com",
+        is_staff: str = False,
+        is_superuser: str = False,
+        is_active: str = True,
+        groups: List[Group] = []
+        ) -> User:
+        user = User.objects.create_user(
+            username=username,
+            password=password,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            is_staff=is_staff,
+            is_superuser=is_superuser,
+            is_active=is_active
+            )
+        user.groups.add(app_user_group)
+        user.groups.add(*groups)
+        return user
+    return create_app_user
+
+
+@pytest.fixture
+def user_A(db, app_user_factory) -> User:
+    return app_user_factory(username="A")
+    
+
+@pytest.fixture
+def user_B(db, app_user_factory) -> User:
+    return app_user_factory(username="B")
+    
     
 def test_should_create_user_with_username(user_A: User) -> None:
     assert user_A.username == "A"

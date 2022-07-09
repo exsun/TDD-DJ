@@ -66,3 +66,27 @@ coverage html
 ```
 </details>
 
+# Fixtures
+Using fixtures, you can avoid repetition and make your tests more maintainable.
+
+# Factory
+
+
+
+# Unified Modeling Language (UML)
+```python
+pipenv install django-extensions
+pipenv install pygraphviz pyparsing pydot
+```
+Add __django_extensions__ to installed Apps
+
+
+create __all__ tables uml
+
+```python
+python manage.py graph_models --pydot -a -g -o my_project_visualized.png
+```
+
+```python
+python manage.py graph_models --pydot (specific app) -g -o (specific_app).png
+```

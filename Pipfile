@@ -13,6 +13,9 @@ model-bakery = "*"
 drf-nested-routers = "*"
 pytest = "*"
 pytest-django = "*"
+pyparsing = "*"
+pydot = "*"
+django-extensions = "*"
 
 [dev-packages]
 

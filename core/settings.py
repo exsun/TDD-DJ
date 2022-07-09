@@ -38,12 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'rest_framework',
     'coverage',
     'account',
     'movies',
     'forum',
-]
+    ]
 
 AUTH_USER_MODEL = 'account.User'
 
@@ -136,4 +137,9 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [],
     'TEST_REQUEST_DEFAULT_FORMAT': 'json'
+}
+
+
+GRAPH_MODELES = {
+    'app_lables': ['account', 'movies', 'forum'],
 }
